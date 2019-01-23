@@ -1,0 +1,6 @@
+- figure out 3 last times when a given ticket value reached 105%
+  - 1 - 2 weeks : high chance of success
+  - 2 - 4 weeks : medium high chance of success
+  - 1 - 2 months : medium chance of success
+  - 2 - 6 months : medium low chance of success
+  - never : very low chance of success
