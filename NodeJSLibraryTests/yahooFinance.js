@@ -23,23 +23,23 @@ yahooFinance.historical({
 */
 
 // This replaces the deprecated snapshot() API
-await nasdaqList.map(async (ticker) => {
-  try {
-    yahooFinance.quote({
-      symbol: ticker,
-      modules: ['price', 'summaryDetail'] // see the docs for the full list
-    }, function (err, quotes) {
-      if (err) {
-        console.log('error Querying2!');
-        return -1;
-      }
-      // console.log('quoting : ', JSON.stringify(quotes,null,2));
-      // fs.writeFileSync(outList, JSON.stringify(quotes, null, 2));
-      resultList.push(quotes);
-    })
-  } catch (err) {
-    console.log(`Error querying quote for ${ticker}, Error: `, err);
-  }
-});
-
-fs.writeFileSync(outList, JSON.stringify(resultList, null, 2));
+Promise.all(nasdaqList.forEach(async (ticker) => {
+    try {
+      yahooFinance.quote({
+        symbol: ticker,
+        modules: ['price', 'summaryDetail'] // see the docs for the full list
+      }, function (err, quotes) {
+        if (err) {
+          console.log('error Querying2!');
+          return -1;
+        }
+        // console.log('quoting : ', JSON.stringify(quotes,null,2));
+        // fs.writeFileSync(outList, JSON.stringify(quotes, null, 2));
+        resultList.push(quotes);
+      })
+    } catch (err) {
+      console.log(`Error querying quote for ${ticker}, Error: `, err);
+    }
+  }))
+  .then(() => fs.writeFileSync(outList, JSON.stringify(resultList, null, 2)))
+  .catch(err => console.log(`ERROR PROMISE ALL: ${err}`));

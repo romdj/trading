@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "check-ticker-symbol": "^1.0.0",
     "get-stock": "^1.0.3",
     "robinhood": "^1.6.4",
     "stock-price": "^1.0.1",
