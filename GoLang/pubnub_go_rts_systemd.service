@@ -1,0 +1,7 @@
+[Unit]
+Description=PubNub Real-Time Stocks
+
+[Service]
+Environment=PUBNUB_STOCKS_CONFIG=/var/pubnub-stocks/configs/
+Environment=PUBNUB_STOCKS_PUBLIC=/var/pubnub-stocks/public/
+ExecStart=/usr/local/bin/pubnub-stocks
