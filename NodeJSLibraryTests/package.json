@@ -1,0 +1,22 @@
+{
+  "name": "NodeJSLibraryTests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "check-ticker-symbol": "^1.0.0",
+    "get-stock": "^1.0.3",
+    "robinhood": "^1.6.4",
+    "stock-price": "^1.0.1",
+    "stock-quote": "^1.0.0",
+    "stockroom": "^1.0.1",
+    "yahoo-finance": "^0.3.6",
+    "yahoo-stocks": "^2.0.4"
+  }
+}
