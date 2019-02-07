@@ -1,6 +1,6 @@
-const request = require('request');
-// const http = require('http');
-const fs = require('fs');
+import request from 'request';
+// import http from 'http';
+import fs from 'fs';
 
 // const markets = [
 //     { name: 'Nasdaq', path: '../DataSets/NASDAQ.json' },
@@ -10,8 +10,8 @@ const fs = require('fs');
 const yahooURL = 'https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com';
 const fields = ['symbol', 'marketState', 'regularMarketPrice', 'regularMarketChange', 'regularMarketChangePercent', 'preMarketPrice', 'preMarketChange', 'preMarketChangePercent', 'postMarketPrice', 'postMarketChange', 'postMarketChangePercent'];
 const finalQueryScript = 'https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com&fields=symbol,marketState,regularMarketPrice,regularMarketChange,regularMarketChangePercent,preMarketPrice,preMarketChange,preMarketChangePercent,postMarketPrice,postMarketChange,postMarketChangePercent&symbols=';
-const nasdaq = require('../DataSets/NASDAQ.json');
-const nyse = require('../DataSets/NYSE.json');
+import nasdaq from '../DataSets/NASDAQ.json';
+import nyse from '../DataSets/NYSE.json';
 const tickerCollection = [...nasdaq, ...nyse];
 const urlMaxLength = 2083;
 const rootLength = 310;
@@ -46,11 +46,11 @@ request
     .on('error', function (err) {
         console.log(err)
     })
-    .pipe(sdasds);
-    // .pipe(fs.createWriteStream('./piped.json'));
+    .pipe(fs.createWriteStream('./piped2.json'));
+    // .pipe(sdasds);
 
-sdasds.on('finish', outputDataSTD(sdasds));
-function outputDataSTD(jsonStream) {
-    console.log(jsonStream);
-}
-//   .pipe(fs.createWriteStream('doodle.png'))
+// sdasds.on('finish', outputDataSTD(sdasds));
+// function outputDataSTD(jsonStream) {
+//     console.log(jsonStream);
+    //   .pipe(fs.createWriteStream('doodle.png'))
+// }
