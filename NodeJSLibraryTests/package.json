@@ -12,6 +12,7 @@
   "dependencies": {
     "check-ticker-symbol": "^1.0.0",
     "get-stock": "^1.0.3",
+    "google-stocks-watch": "^1.0.0",
     "robinhood": "^1.6.4",
     "stock-price": "^1.0.1",
     "stock-quote": "^1.0.0",
