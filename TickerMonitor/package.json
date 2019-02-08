@@ -1,5 +1,5 @@
 {
-  "name": "TickerMonitor",
+  "name": "tickermonitor",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "mongoose": "^5.4.7",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "uuid": "^3.3.2"
   }
 }
