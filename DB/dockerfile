@@ -1,0 +1,2 @@
+docker pull redis
+docker pull elasticsearch

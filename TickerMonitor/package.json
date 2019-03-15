@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "run-history": "node --experimental-modules dataFetcher.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.4.7",
-    "request": "^2.88.0"
+    "elasticsearch": "^15.4.1",
+    "mongoose": "^5.4.19",
+    "request": "^2.88.0",
+    "uuid": "^3.3.2",
+    "yahoo-finance": "^0.3.6"
   }
 }
