@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require('request-promise-native');
 // const http = require('http');
 const fs = require('fs');
 
