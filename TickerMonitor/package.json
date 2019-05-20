@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "run-history": "node --experimental-modules dataFetcher.mjs",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "version-bump": "npm version minor; conventional-changelog-cli",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test written yet! (Don't forget TDD!)\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "conventional-changelog-cli": "^2.0.21",
     "elasticsearch": "^15.5.0",
     "mongoose": "^5.5.10",
     "request": "^2.88.0",
