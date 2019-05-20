@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Snyk test report</title>
+  <meta name="description" content="8 known vulnerabilities found in 11 vulnerable dependency paths.">
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/snyk/image/upload/v1468845142/favicon/favicon.png" sizes="194x194">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/snyk/image/upload/v1468845142/favicon/favicon.ico">
+  <style type="text/css">
+  
+    body {
+      -moz-font-feature-settings: "pnum";
+      -webkit-font-feature-settings: "pnum";
+      font-variant-numeric: proportional-nums;
+      display: flex;
+      flex-direction: column;
+      font-feature-settings: "pnum";
+      font-size: 100%;
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-text-size-adjust: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #F5F5F5;
+      font-family: 'Arial', 'Helvetica', Calibri, sans-serif;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 500;
+    }
+  
+    a,
+    a:link,
+    a:visited {
+      border-bottom: 1px solid #4b45a9;
+      text-decoration: none;
+      color: #4b45a9;
+    }
+  
+    a:hover,
+    a:focus,
+    a:active {
+      border-bottom: 2px solid #4b45a9;
+    }
+  
+    hr {
+      border: none;
+      margin: 1em 0;
+      border-top: 1px solid #c5c5c5;
+    }
+  
+    ul {
+      padding: 0 1em;
+      margin: 1em 0;
+    }
+  
+    code {
+      background-color: #EEE;
+      color: #333;
+      padding: 0.25em 0.5em;
+      border-radius: 0.25em;
+    }
+  
+    pre {
+      background-color: #333;
+      font-family: monospace;
+      padding: 0.5em 1em 0.75em;
+      border-radius: 0.25em;
+      font-size: 14px;
+    }
+  
+    pre code {
+      padding: 0;
+      background-color: transparent;
+      color: #fff;
+    }
+  
+    a code {
+      border-radius: .125rem .125rem 0 0;
+      padding-bottom: 0;
+      color: #4b45a9;
+    }
+  
+    a[href^="http://"]:after,
+    a[href^="https://"]:after {
+      background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20112%20109%22%3E%3Cg%20id%3D%22Page-1%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20id%3D%22link-external%22%3E%3Cg%20id%3D%22arrow%22%3E%3Cpath%20id%3D%22Line%22%20stroke%3D%22%234B45A9%22%20stroke-width%3D%2215%22%20d%3D%22M88.5%2021l-43%2042.5%22%20stroke-linecap%3D%22square%22%2F%3E%3Cpath%20id%3D%22Triangle%22%20fill%3D%22%234B45A9%22%20d%3D%22M111.2%200v50L61%200z%22%2F%3E%3C%2Fg%3E%3Cpath%20id%3D%22square%22%20fill%3D%22%234B45A9%22%20d%3D%22M66%2015H0v94h94V44L79%2059v35H15V30h36z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-size: .75rem;
+      content: "";
+      display: inline-block;
+      height: .75rem;
+      margin-left: .25rem;
+      width: .75rem;
+    }
+  
+  
+  /* Layout */
+  
+    [class*=layout-container] {
+      margin: 0 auto;
+      max-width: 71.25em;
+      padding: 1.9em 1.3em;
+      position: relative;
+    }
+    .layout-container--short {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  
+    .layout-container--short:after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  
+  /* Header */
+  
+    .header {
+      padding-bottom: 1px;
+    }
+  
+    .project__header {
+      background-color: #4C4A73;
+      color: #fff;
+      margin-bottom: -1px;
+      padding-top: 1em;
+      padding-bottom: 0.25em;
+      border-bottom: 2px solid #BBB;
+    }
+  
+    .project__header__title {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      margin-bottom: .1em;
+      margin-top: 0;
+      float: left;
+    }
+  
+    .timestamp {
+      float: right;
+      clear: none;
+      margin-bottom: 0;
+    }
+  
+    .meta-counts {
+      clear: both;
+      display: block;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 0 1.5em;
+      color: #fff;
+      clear: both;
+      font-size: 1.1em;
+    }
+  
+    .meta-count {
+      display: block;
+      flex-basis: 100%;
+      margin: 0 1em 1em 0;
+      float: left;
+      padding-right: 1em;
+      border-right: 2px solid #fff;
+    }
+  
+    .meta-count:last-child {
+      border-right: 0;
+      padding-right: 0;
+      margin-right: 0;
+    }
+  
+  /* Card */
+  
+    .card {
+      background-color: #fff;
+      border: 1px solid #c5c5c5;
+      border-radius: .25rem;
+      margin: 0 0 2em 0;
+      position: relative;
+      min-height: 40px;
+      padding: 1.5em;
+    }
+  
+    .card .label {
+      background-color: #767676;
+      border: 2px solid #767676;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 0;
+      border-radius: 0.25rem;
+    }
+  
+    .card .label__text {
+      vertical-align: text-top;
+    }
+  
+    .card .label--high {
+      background-color: #B51B72;
+      border-color: #B51B72;
+    }
+  
+    .card .label--medium {
+      background-color: #E29022;
+      border-color: #E29022;
+    }
+  
+    .card .label--low {
+      background-color: #222049;
+      border-color: #222049;
+    }
+  
+    .card .card.severity--low {
+      border-color: #222049;
+    }
+  
+    .card .card.severity--medium {
+      border-color: #E29022;
+    }
+  
+    .card .card.severity--high {
+      border-color: #B51B72;
+    }
+  
+    .card--vuln {
+      padding-top: 4em;
+      max-width: 48.75em;
+    }
+  
+    .card--vuln .label {
+      left: 0;
+      position: absolute;
+      top: 1.1em;
+      padding-left: 1.9em;
+      padding-right: 1.9em;
+      border-radius: 0 0.25rem 0.25rem 0;
+    }
+  
+    .card--vuln .card__section h2 {
+      font-size: 22px;
+      margin-bottom: 0.5em;
+    }
+  
+    .card--vuln .card__section p {
+      margin: 0 0 0.5em 0;
+    }
+  
+    .card--vuln .card__meta {
+      padding: 0 0 0 1em;
+      margin: 0;
+      font-size: 1.1em;
+    }
+  
+    .card .card__meta__paths {
+      font-size: 0.9em;
+    }
+  
+    .card--vuln .card__title {
+      font-size: 28px;
+      margin-top: 0;
+    }
+  
+    .card--vuln .card__cta p {
+      margin: 0;
+      text-align: right;
+    }
+  
+    .source-panel {
+      clear: both;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.5em 0;
+      width: fit-content;
+      padding: 0.5em;
+    }
+  
+  
+  
+  </style>
+</head>
+
+<body class="section-projects">
+<main class="layout-stacked">
+
+  <div class="layout-stacked__header header">
+    <header class="project__header">
+      <div class="layout-container--short">
+        <h1 class="project__header__title">Snyk test report</h1>
+        <p class="timestamp">February 4th 2019, 5:21:59 am</p>
+          <div class="source-panel">
+            <span>Scanned the following path:</span>
+            <ul><li>/Users/romdj/TestZone/trading/NodeJSLibraryTests</li></ul>
+          </div>
+
+        <div class="meta-counts">
+          <div class="meta-count"><span>8</span> <span>known vulnerabilities</span></div>
+          <div class="meta-count"><span>11 vulnerable dependency paths</span></div>
+          <div class="meta-count"><span>130</span> <span>dependencies</span></div>
+        </div><!-- .meta-counts -->
+      </div><!-- .layout-container--short -->
+    </header><!-- .project__header -->
+  </div><!-- .layout-stacked__header -->
+
+  <div class="layout-stacked__content">
+    <div class="layout-container--short" style="padding-top: 35px;">   
+      <div class="cards--vuln filter--patch filter--ignore">
+        <div class="card card--vuln  disclosure--not-new severity--medium" >
+            <h2 class="card__title">Insecure Randomness</h2>
+            <div class="card__section">
+        
+                <div class="label label--medium">
+                    <span class="label__text">medium severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            cryptiles
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, google-stocks-watch@1.0.0 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hawk@2.3.1
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    cryptiles@2.0.5
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://www.npmjs.com/package/cryptiles">cryptiles</a> is a package for general crypto utilities.</p>
+        <p>Affected versions of this package are vulnerable to Insecure Randomness. The <code>randomDigits()</code> method is supposed to return a cryptographically strong pseudo-random data string, but it was biased to certain digits. An attacker could be able to guess the created digits.</p>
+        <h2 id="remediation">Remediation</h2>
+        <p>Upgrade to version 4.1.2 and higher.</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><a href="https://github.com/hapijs/cryptiles/commit/9332d4263a32b84e76bf538d7470d01ea63fa047">GitHub Commit</a></li>
+        <li><a href="https://github.com/hapijs/cryptiles/issues/34">GitHub Issue</a></li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:cryptiles:20180710">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->        <div class="card card--vuln  disclosure--not-new severity--low" >
+            <h2 class="card__title">Regular Expression Denial of Service (DoS)</h2>
+            <div class="card__section">
+        
+                <div class="label label--low">
+                    <span class="label__text">low severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            hawk
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, google-stocks-watch@1.0.0 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hawk@2.3.1
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://www.npmjs.com/package/hawk"><code>hawk</code></a> is an HTTP authentication scheme using a message authentication code (MAC) algorithm to provide partial HTTP request cryptographic verification.</p>
+        <p>Affected versions of this package are vulnerable to Regular Expression Denial of Service (ReDoS) attacks.</p>
+        <h2 id="details">Details</h2>
+        <p>Denial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its original and legitimate users. There are many types of DoS attacks, ranging from trying to clog the network pipes to the system by generating a large volume of traffic from many machines (a Distributed Denial of Service - DDoS - attack) to sending crafted requests that cause a system to crash or take a disproportional amount of time to process.</p>
+        <p>The Regular expression Denial of Service (ReDoS) is a type of Denial of Service attack. Regular expressions are incredibly powerful, but they aren&#39;t very intuitive and can ultimately end up making it easy for attackers to take your site down.</p>
+        <p>Let’s take the following regular expression as an example:</p>
+        <pre><code class="lang-js">regex = /A(B|C+)+D/
+        </code></pre>
+        <p>This regular expression accomplishes the following:</p>
+        <ul>
+        <li><code>A</code> The string must start with the letter &#39;A&#39;</li>
+        <li><code>(B|C+)+</code> The string must then follow the letter A with either the letter &#39;B&#39; or some number of occurrences of the letter &#39;C&#39; (the <code>+</code> matches one or more times). The <code>+</code> at the end of this section states that we can look for one or more matches of this section.</li>
+        <li><code>D</code> Finally, we ensure this section of the string ends with a &#39;D&#39;</li>
+        </ul>
+        <p>The expression would match inputs such as <code>ABBD</code>, <code>ABCCCCD</code>, <code>ABCBCCCD</code> and <code>ACCCCCD</code></p>
+        <p>It most cases, it doesn&#39;t take very long for a regex engine to find a match:</p>
+        <pre><code class="lang-bash">$ time node -e &#39;/A(B|C+)+D/.test(&quot;ACCCCCCCCCCCCCCCCCCCCCCCCCCCCD&quot;)&#39;
+        0.04s user 0.01s system 95% cpu 0.052 total
+        
+        $ time node -e &#39;/A(B|C+)+D/.test(&quot;ACCCCCCCCCCCCCCCCCCCCCCCCCCCCX&quot;)&#39;
+        1.79s user 0.02s system 99% cpu 1.812 total
+        </code></pre>
+        <p>The entire process of testing it against a 30 characters long string takes around ~52ms. But when given an invalid string, it takes nearly two seconds to complete the test, over ten times as long as it took to test a valid string. The dramatic difference is due to the way regular expressions get evaluated.</p>
+        <p>Most Regex engines will work very similarly (with minor differences). The engine will match the first possible way to accept the current character and proceed to the next one. If it then fails to match the next one, it will backtrack and see if there was another way to digest the previous character. If it goes too far down the rabbit hole only to find out the string doesn’t match in the end, and if many characters have multiple valid regex paths, the number of backtracking steps can become very large, resulting in what is known as <em>catastrophic backtracking</em>.</p>
+        <p>Let&#39;s look at how our expression runs into this problem, using a shorter string: &quot;ACCCX&quot;. While it seems fairly straightforward, there are still four different ways that the engine could match those three C&#39;s:</p>
+        <ol>
+        <li>CCC</li>
+        <li>CC+C</li>
+        <li>C+CC</li>
+        <li>C+C+C.</li>
+        </ol>
+        <p>The engine has to try each of those combinations to see if any of them potentially match against the expression. When you combine that with the other steps the engine must take, we can use <a href="https://regex101.com/debugger">RegEx 101 debugger</a> to see the engine has to take a total of 38 steps before it can determine the string doesn&#39;t match.</p>
+        <p>From there, the number of steps the engine must use to validate a string just continues to grow.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>String</th>
+        <th style="text-align:right">Number of C&#39;s</th>
+        <th style="text-align:right">Number of steps</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>ACCCX</td>
+        <td style="text-align:right">3</td>
+        <td style="text-align:right">38</td>
+        </tr>
+        <tr>
+        <td>ACCCCX</td>
+        <td style="text-align:right">4</td>
+        <td style="text-align:right">71</td>
+        </tr>
+        <tr>
+        <td>ACCCCCX</td>
+        <td style="text-align:right">5</td>
+        <td style="text-align:right">136</td>
+        </tr>
+        <tr>
+        <td>ACCCCCCCCCCCCCCX</td>
+        <td style="text-align:right">14</td>
+        <td style="text-align:right">65,553</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>By the time the string includes 14 C&#39;s, the engine has to take over 65,000 steps just to see if the string is valid. These extreme situations can cause them to work very slowly (exponentially related to input size, as shown above), allowing an attacker to exploit this and can cause the service to excessively consume CPU, resulting in a Denial of Service.</p>
+        <p>You can read more about <code>Regular Expression Denial of Service (ReDoS)</code> on our <a href="https://snyk.io/blog/redos-and-catastrophic-backtracking/">blog</a>.</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><a href="https://github.com/hueniverse/hawk/issues/168">GitHub Issue</a></li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:hawk:20160119">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->        <div class="card card--vuln  disclosure--not-new severity--low" >
+            <h2 class="card__title">Prototype Pollution</h2>
+            <div class="card__section">
+        
+                <div class="label label--low">
+                    <span class="label__text">low severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            hoek
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, google-stocks-watch@1.0.0 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hawk@2.3.1
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hoek@2.16.3
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hawk@2.3.1
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    boom@2.10.1
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hoek@2.16.3
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hawk@2.3.1
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    sntp@1.0.9
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hoek@2.16.3
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hawk@2.3.1
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    cryptiles@2.0.5
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    boom@2.10.1
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    hoek@2.16.3
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://github.com/hapijs/hoek">hoek</a> is a Utility methods for the hapi ecosystem.</p>
+        <p>Affected versions of this package are vulnerable to Prototype Pollution. 
+        The utilities function allow modification of the <code>Object</code> prototype. If an attacker can control part of the structure passed to this function, they could add or modify an existing property.  </p>
+        <h2 id="poc-by-olivier-arteau-holyvier-">PoC by Olivier Arteau (HoLyVieR)</h2>
+        <pre><code class="lang-js">var Hoek = require(&#39;hoek&#39;);
+        var malicious_payload = &#39;{&quot;__proto__&quot;:{&quot;oops&quot;:&quot;It works !&quot;}}&#39;;
+        
+        var a = {};
+        console.log(&quot;Before : &quot; + a.oops);
+        Hoek.merge({}, JSON.parse(malicious_payload));
+        console.log(&quot;After : &quot; + a.oops);
+        
+        </code></pre>
+        <h2 id="remediation">Remediation</h2>
+        <p>Upgrade <code>hoek</code> to versions 4.2.1, 5.0.3 or higher.</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><a href="https://hackerone.com/reports/310439">HackerOne Report</a></li>
+        <li><a href="https://github.com/hapijs/hoek/pull/227">GitHub PR</a></li>
+        <li><a href="https://github.com/hapijs/hoek/issues/230">GitHub Issue - 4.2.1 Backport</a></li>
+        <li><a href="https://github.com/hapijs/hoek/commit/32ed5c9413321fbc37da5ca81a7cbab693786dee">GitHub Commit 5.0.3</a></li>
+        <li><a href="https://github.com/hapijs/hoek/commit/5aed1a8c4a3d55722d1c799f2368857bf418d6df">GitHub Commit 4.2.x</a></li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:hoek:20180212">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->        <div class="card card--vuln  disclosure--not-new severity--medium" >
+            <h2 class="card__title">Timing Attack</h2>
+            <div class="card__section">
+        
+                <div class="label label--medium">
+                    <span class="label__text">medium severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            http-signature
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, google-stocks-watch@1.0.0 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    http-signature@0.10.1
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://www.npmjs.com/package/http-signature"><code>http-signature</code></a> is a reference implementation of Joyent&#39;s HTTP Signature scheme.</p>
+        <p>Affected versions of the package are vulnerable to Timing Attacks due to time-variable comparison of signatures. </p>
+        <p>The library implemented a character to character comparison, similar to the built-in string comparison mechanism, <code>===</code>, and not a time constant string comparison. As a result, the comparison will fail faster when the first characters in the signature are incorrect.
+        An attacker can use this difference to perform a timing attack, essentially allowing them to guess the signature one character at a time.</p>
+        <p>You can read more about timing attacks in Node.js on the <a href="https://snyk.io/blog/node-js-timing-attack-ccc-ctf/">Snyk blog</a>.</p>
+        <h2 id="remediation">Remediation</h2>
+        <p>Upgrade <code>http-signature</code> to version 1.0.0 or higher.</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><a href="https://github.com/joyent/node-http-signature/pull/36">Github PR</a></li>
+        <li><a href="https://github.com/joyent/node-http-signature/commit/78ab1da232f31f695f5c362d863593a143aa8b56">Github Commit</a></li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:http-signature:20150122">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->        <div class="card card--vuln  disclosure--not-new severity--high" >
+            <h2 class="card__title">Prototype Override Protection Bypass</h2>
+            <div class="card__section">
+        
+                <div class="label label--high">
+                    <span class="label__text">high severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            qs
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, google-stocks-watch@1.0.0 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    qs@2.4.2
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://www.npmjs.com/package/qs"><code>qs</code></a> is a querystring parser that supports nesting and arrays, with a depth limit.</p>
+        <p>By default <code>qs</code> protects against attacks that attempt to overwrite an object&#39;s existing prototype properties, such as <code>toString()</code>, <code>hasOwnProperty()</code>,etc.</p>
+        <p>From <a href="https://github.com/ljharb/qs"><code>qs</code> documentation</a>:</p>
+        <blockquote>
+        <p>By default parameters that would overwrite properties on the object prototype are ignored, if you wish to keep the data from those fields either use plainObjects as mentioned above, or set allowPrototypes to true which will allow user input to overwrite those properties. WARNING It is generally a bad idea to enable this option as it can cause problems when attempting to use the properties that have been overwritten. Always be careful with this option.</p>
+        </blockquote>
+        <p>Overwriting these properties can impact application logic, potentially allowing attackers to work around security controls, modify data, make the application unstable and more.</p>
+        <p>In versions of the package affected by this vulnerability, it is possible to circumvent this protection and overwrite prototype properties and functions by prefixing the name of the parameter with <code>[</code> or <code>]</code>. e.g. <code>qs.parse(&quot;]=toString&quot;)</code> will return <code>{toString = true}</code>, as a result, calling <code>toString()</code> on the object will throw an exception.</p>
+        <p><strong>Example:</strong></p>
+        <pre><code class="lang-js">qs.parse(&#39;toString=foo&#39;, { allowPrototypes: false })
+        // {}
+        
+        qs.parse(&quot;]=toString&quot;, { allowPrototypes: false })
+        // {toString = true} &lt;== prototype overwritten
+        </code></pre>
+        <p>For more information, you can check out our <a href="https://snyk.io/blog/high-severity-vulnerability-qs/">blog</a>.</p>
+        <h2 id="disclosure-timeline">Disclosure Timeline</h2>
+        <ul>
+        <li>February 13th, 2017 - Reported the issue to package owner.</li>
+        <li>February 13th, 2017 - Issue acknowledged by package owner.</li>
+        <li>February 16th, 2017 - Partial fix released in versions <code>6.0.3</code>, <code>6.1.1</code>, <code>6.2.2</code>, <code>6.3.1</code>.</li>
+        <li>March 6th, 2017     - Final fix released in versions <code>6.4.0</code>,<code>6.3.2</code>, <code>6.2.3</code>, <code>6.1.2</code> and <code>6.0.4</code></li>
+        </ul>
+        <h2 id="remediation">Remediation</h2>
+        <p>Upgrade <code>qs</code> to version <code>6.4.0</code> or higher.
+        <strong>Note:</strong> The fix was backported to the following versions <code>6.3.2</code>, <code>6.2.3</code>, <code>6.1.2</code>, <code>6.0.4</code>.</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><a href="https://github.com/ljharb/qs/commit/beade029171b8cef9cee0d03ebe577e2dd84976d">GitHub Commit</a></li>
+        <li><a href="https://github.com/ljharb/qs/issues/200">Report of an insufficient fix</a></li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:qs:20170213">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->        <div class="card card--vuln  disclosure--not-new severity--medium" >
+            <h2 class="card__title">Remote Memory Exposure</h2>
+            <div class="card__section">
+        
+                <div class="label label--medium">
+                    <span class="label__text">medium severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            request
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, google-stocks-watch@1.0.0 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://www.npmjs.com/package/request">request</a> is a simplified http request client.</p>
+        <p>Affected versions of this package are vulnerable to Remote Memory Exposure.
+        A potential remote memory exposure vulnerability exists in <code>request</code>. If a <code>request</code> uses a multipart attachment and the <em>body type</em> option is <code>number</code> with value X, then X bytes of uninitialized memory will be sent in the body of the request.</p>
+        <p>Note that while the impact of this vulnerability is high (memory exposure), exploiting it is likely difficult, as the attacker needs to somehow control the body type of the request. One potential exploit scenario is when a request is composed based on JSON input, including the body type, allowing a malicious JSON to trigger the memory leak.</p>
+        <h2 id="details">Details</h2>
+        <p>Constructing a <code>Buffer</code> class with integer <code>N</code> creates a <code>Buffer</code>
+        of length <code>N</code> with non zero-ed out memory.
+        <strong>Example:</strong></p>
+        <pre><code class="lang-js">var x = new Buffer(100); // uninitialized Buffer of length 100
+        // vs
+        var x = new Buffer(&#39;100&#39;); // initialized Buffer with value of &#39;100&#39;
+        </code></pre>
+        <p>Initializing a multipart body in such manner will cause uninitialized memory to be sent in the body of the request.</p>
+        <h4 id="proof-of-concept">Proof of concept</h4>
+        <pre><code class="lang-js">var http = require(&#39;http&#39;)
+        var request = require(&#39;request&#39;)
+        
+        http.createServer(function (req, res) {
+          var data = &#39;&#39;
+          req.setEncoding(&#39;utf8&#39;)
+          req.on(&#39;data&#39;, function (chunk) {
+            console.log(&#39;data&#39;)
+            data += chunk
+          })
+          req.on(&#39;end&#39;, function () {
+            // this will print uninitialized memory from the client
+            console.log(&#39;Client sent:\n&#39;, data)
+          })
+          res.end()
+        }).listen(8000)
+        
+        request({
+          method: &#39;POST&#39;,
+          uri: &#39;http://localhost:8000&#39;,
+          multipart: [{ body: 1000 }]
+        },
+        function (err, res, body) {
+          if (err) return console.error(&#39;upload failed:&#39;, err)
+          console.log(&#39;sent&#39;)
+        })
+        </code></pre>
+        <h2 id="remediation">Remediation</h2>
+        <p>Upgrade <code>request</code> to version 2.68.0 or higher.</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><p><a href="https://github.com/request/request/pull/2018/commits/3d31d4526fa4d4e4f59b89cabe194fb671063cdb">GitHub Fixed Commit</a></p>
+        </li>
+        <li><p><a href="https://github.com/request/request/pull/2018">GitHub PR</a></p>
+        </li>
+        <li><p><a href="https://github.com/ChALkeR/notes/blob/master/Lets-fix-Buffer-API.md#previous-materials">Blog: Node Buffer API fix</a></p>
+        </li>
+        <li><p><a href="https://github.com/ChALkeR/notes/blob/master/Buffer-knows-everything.md">Blog: Information about Buffer</a></p>
+        </li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:request:20160119">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->        <div class="card card--vuln  disclosure--not-new severity--medium" >
+            <h2 class="card__title">Regular Expression Denial of Service (ReDoS)</h2>
+            <div class="card__section">
+        
+                <div class="label label--medium">
+                    <span class="label__text">medium severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            string
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, yahoo-finance@0.3.6 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    yahoo-finance@0.3.6
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    string@3.3.3
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://www.npmjs.com/package/string"><code>string</code></a> is a JavaScript library for extra String methods.</p>
+        <p>Affected versions of this package are vulnerable to Regular expression Denial of Service (ReDoS). It uses regex in the <code>underscore</code> and <code>unescapeHTML</code> methods, which can cause a slowdown of 2 seconds 50k characters.</p>
+        <h2 id="details">Details</h2>
+        <p>Denial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its original and legitimate users. There are many types of DoS attacks, ranging from trying to clog the network pipes to the system by generating a large volume of traffic from many machines (a Distributed Denial of Service - DDoS - attack) to sending crafted requests that cause a system to crash or take a disproportional amount of time to process.</p>
+        <p>The Regular expression Denial of Service (ReDoS) is a type of Denial of Service attack. Regular expressions are incredibly powerful, but they aren&#39;t very intuitive and can ultimately end up making it easy for attackers to take your site down.</p>
+        <p>Let’s take the following regular expression as an example:</p>
+        <pre><code class="lang-js">regex = /A(B|C+)+D/
+        </code></pre>
+        <p>This regular expression accomplishes the following:</p>
+        <ul>
+        <li><code>A</code> The string must start with the letter &#39;A&#39;</li>
+        <li><code>(B|C+)+</code> The string must then follow the letter A with either the letter &#39;B&#39; or some number of occurrences of the letter &#39;C&#39; (the <code>+</code> matches one or more times). The <code>+</code> at the end of this section states that we can look for one or more matches of this section.</li>
+        <li><code>D</code> Finally, we ensure this section of the string ends with a &#39;D&#39;</li>
+        </ul>
+        <p>The expression would match inputs such as <code>ABBD</code>, <code>ABCCCCD</code>, <code>ABCBCCCD</code> and <code>ACCCCCD</code></p>
+        <p>It most cases, it doesn&#39;t take very long for a regex engine to find a match:</p>
+        <pre><code class="lang-bash">$ time node -e &#39;/A(B|C+)+D/.test(&quot;ACCCCCCCCCCCCCCCCCCCCCCCCCCCCD&quot;)&#39;
+        0.04s user 0.01s system 95% cpu 0.052 total
+        
+        $ time node -e &#39;/A(B|C+)+D/.test(&quot;ACCCCCCCCCCCCCCCCCCCCCCCCCCCCX&quot;)&#39;
+        1.79s user 0.02s system 99% cpu 1.812 total
+        </code></pre>
+        <p>The entire process of testing it against a 30 characters long string takes around ~52ms. But when given an invalid string, it takes nearly two seconds to complete the test, over ten times as long as it took to test a valid string. The dramatic difference is due to the way regular expressions get evaluated.</p>
+        <p>Most Regex engines will work very similarly (with minor differences). The engine will match the first possible way to accept the current character and proceed to the next one. If it then fails to match the next one, it will backtrack and see if there was another way to digest the previous character. If it goes too far down the rabbit hole only to find out the string doesn’t match in the end, and if many characters have multiple valid regex paths, the number of backtracking steps can become very large, resulting in what is known as <em>catastrophic backtracking</em>.</p>
+        <p>Let&#39;s look at how our expression runs into this problem, using a shorter string: &quot;ACCCX&quot;. While it seems fairly straightforward, there are still four different ways that the engine could match those three C&#39;s:</p>
+        <ol>
+        <li>CCC</li>
+        <li>CC+C</li>
+        <li>C+CC</li>
+        <li>C+C+C.</li>
+        </ol>
+        <p>The engine has to try each of those combinations to see if any of them potentially match against the expression. When you combine that with the other steps the engine must take, we can use <a href="https://regex101.com/debugger">RegEx 101 debugger</a> to see the engine has to take a total of 38 steps before it can determine the string doesn&#39;t match.</p>
+        <p>From there, the number of steps the engine must use to validate a string just continues to grow.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>String</th>
+        <th style="text-align:right">Number of C&#39;s</th>
+        <th style="text-align:right">Number of steps</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>ACCCX</td>
+        <td style="text-align:right">3</td>
+        <td style="text-align:right">38</td>
+        </tr>
+        <tr>
+        <td>ACCCCX</td>
+        <td style="text-align:right">4</td>
+        <td style="text-align:right">71</td>
+        </tr>
+        <tr>
+        <td>ACCCCCX</td>
+        <td style="text-align:right">5</td>
+        <td style="text-align:right">136</td>
+        </tr>
+        <tr>
+        <td>ACCCCCCCCCCCCCCX</td>
+        <td style="text-align:right">14</td>
+        <td style="text-align:right">65,553</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>By the time the string includes 14 C&#39;s, the engine has to take over 65,000 steps just to see if the string is valid. These extreme situations can cause them to work very slowly (exponentially related to input size, as shown above), allowing an attacker to exploit this and can cause the service to excessively consume CPU, resulting in a Denial of Service.</p>
+        <h2 id="remediation">Remediation</h2>
+        <p>There is no fix version for <code>string</code>.</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><a href="https://github.com/jprichardson/string.js/issues/212">Github Issue</a></li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:string:20170907">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->        <div class="card card--vuln  disclosure--not-new severity--medium" >
+            <h2 class="card__title">Uninitialized Memory Exposure</h2>
+            <div class="card__section">
+        
+                <div class="label label--medium">
+                    <span class="label__text">medium severity</span>
+                </div>
+        
+                <hr/>
+        
+                <ul class="card__meta">
+                    <li class="card__meta__item">
+                            Vulnerable module:
+        
+                            tunnel-agent
+                    </li>
+        
+                    <li class="card__meta__item">Introduced through:
+        
+        
+                                    NodeJSLibraryTests@1.0.0, google-stocks-watch@1.0.0 and others
+                    </li>
+                </ul>
+        
+                <hr/>
+        
+                    <h3 class="card__section__title">Detailed paths</h3>
+        
+                <ul class="card__meta__paths">
+                            <li>
+                            <span class="list-paths__item__introduced"><em>Introduced through</em>:
+                                    NodeJSLibraryTests@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks-watch@1.0.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    google-stocks@0.2.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    request@2.55.0
+                                     <span class="list-paths__item__arrow">›</span> 
+                                    tunnel-agent@0.4.3
+                                    
+                            </span>
+        
+                        </li>
+                        </li>
+                </ul><!-- .list-paths -->
+        
+            </div><!-- .card__section -->
+        
+            <hr/>
+            <!-- Overview -->
+            <h2 id="overview">Overview</h2>
+        <p><a href="https://www.npmjs.com/package/tunnel-agent"><code>tunnel-agent</code></a> is HTTP proxy tunneling agent. Affected versions of the package are vulnerable to Uninitialized Memory Exposure. </p>
+        <p>A possible memory disclosure vulnerability exists when a value of type <code>number</code> is used to set the <em>proxy.auth</em> option of a request <code>request</code> and results in a possible uninitialized memory exposures in the request body.</p>
+        <p>This is a result of unobstructed use of the <code>Buffer</code> constructor, whose <a href="https://snyk.io/blog/exploiting-buffer/">insecure default constructor increases the odds of memory leakage</a>.</p>
+        <h2 id="details">Details</h2>
+        <p>Constructing a <code>Buffer</code> class with integer <code>N</code> creates a <code>Buffer</code> of length <code>N</code> with raw (not &quot;zero-ed&quot;) memory.</p>
+        <p>In the following example, the first call would allocate 100 bytes of memory, while the second example will allocate the memory needed for the string &quot;100&quot;:</p>
+        <pre><code class="lang-js">// uninitialized Buffer of length 100
+        x = new Buffer(100);
+        // initialized Buffer with value of &#39;100&#39;
+        x = new Buffer(&#39;100&#39;);
+        </code></pre>
+        <p><code>tunnel-agent</code>&#39;s <code>request</code> construction uses the default <code>Buffer</code> constructor as-is, making it easy to append uninitialized memory to an existing list. If the value of the buffer list is exposed to users, it may expose raw server side memory, potentially holding secrets, private data and code. This is a similar vulnerability to the infamous <a href="http://heartbleed.com/"><code>Heartbleed</code></a> flaw in OpenSSL.</p>
+        <h4 id="proof-of-concept-by-chalker">Proof of concept by ChALkeR</h4>
+        <pre><code class="lang-js">require(&#39;request&#39;)({
+          method: &#39;GET&#39;,
+          uri: &#39;http://www.example.com&#39;,
+          tunnel: true,
+          proxy:{
+              protocol: &#39;http:&#39;,
+              host:&quot;127.0.0.1&quot;,
+              port:8080,
+              auth:80
+          }
+        });
+        </code></pre>
+        <p>You can read more about the insecure <code>Buffer</code> behavior <a href="https://snyk.io/blog/exploiting-buffer/">on our blog</a>.</p>
+        <p>Similar vulnerabilities were discovered in <a href="https://snyk.io/vuln/npm:request:20160119">request</a>, <a href="https://snyk.io/vuln/npm:mongoose:20160116">mongoose</a>, <a href="https://snyk.io/vuln/npm:ws:20160104">ws</a> and <a href="https://snyk.io/vuln/npm:sequelize:20160115">sequelize</a>.</p>
+        <h2 id="remediation">Remediation</h2>
+        <p>Upgrade <code>tunnel-agent</code> to version 0.6.0 or higher.
+        <strong>Note</strong> This is vulnerable only for Node &lt;=4</p>
+        <h2 id="references">References</h2>
+        <ul>
+        <li><a href="https://github.com/request/tunnel-agent/commit/9ca95ec7219daface8a6fc2674000653de0922c0">Github Commit</a></li>
+        <li><a href="https://gist.github.com/ChALkeR/fd6b2c445834244e7d440a043f9d2ff4">PoC by ChALkeR</a></li>
+        </ul>
+        
+            <hr/>
+        
+            <div class="cta card__cta">
+                <p><a href="https://snyk.io/vuln/npm:tunnel-agent:20170305">More about this vulnerability</a></p>
+            </div>
+        
+        </div><!-- .card -->      </div><!-- cards -->
+    </div>
+  </div><!-- .layout-container -->
+
+</main><!-- .layout-stacked__content -->
+</body>
+</html>
