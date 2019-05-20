@@ -1,19 +1,23 @@
 {
-  "name": "TickerMonitor",
-  "version": "1.0.0",
+  "name": "tickermonitor",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "run-history": "node --experimental-modules dataFetcher.mjs",
+    "version-bump": "npm version minor; conventional-changelog-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "elasticsearch": "^15.4.1",
-    "mongoose": "^5.4.19",
+  "dependencies": {},
+  "devDependencies": {
+    "elasticsearch": "^15.5.0",
+    "mongoose": "^5.5.10",
     "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "request-promise-native": "^1.0.7",
     "uuid": "^3.3.2",
     "yahoo-finance": "^0.3.6"
   }

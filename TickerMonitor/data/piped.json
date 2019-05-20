@@ -1,0 +1,34 @@
+{
+    "quoteResponse": {
+        "result": [
+            {
+                "language": "en-US",
+                "region": "US",
+                "quoteType": "EQUITY",
+                "quoteSourceName": "Nasdaq Real Time Price",
+                "regularMarketChange": 1.2200012,
+                "exchange": "NMS",
+                "marketState": "CLOSED",
+                "market": "us_market",
+                "sourceInterval": 15,
+                "exchangeTimezoneName": "America/New_York",
+                "exchangeTimezoneShortName": "EST",
+                "gmtOffSetMilliseconds": -18000000,
+                "esgPopulated": false,
+                "tradeable": true,
+                "regularMarketPrice": 65.22,
+                "regularMarketTime": 1548450001,
+                "postMarketChangePercent": 0.0,
+                "postMarketTime": 1548456984,
+                "postMarketPrice": 65.22,
+                "postMarketChange": 0.0,
+                "regularMarketChangePercent": 1.9062519,
+                "regularMarketPreviousClose": 64.0,
+                "fullExchangeName": "NasdaqGS",
+                "exchangeDataDelayedBy": 0,
+                "symbol": "AABA"
+            }
+        ],
+        "error": null
+    }
+}
