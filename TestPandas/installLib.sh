@@ -1,0 +1,2 @@
+#!/bin/sh
+pip install pandas_datareader; pip install datetime; pip install quandl; pip install matplotlib; pip install matplotlib.pyplot; pip install csv; pip install json; pip install copy; pip install sys
