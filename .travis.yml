@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-  - "12"
+  - "11"
 before_script:
   - cd TickerMonitor
-  - npm i -g snyk
+  - npm i -g snyk mocha
 # script:
 #   - npm test
 
