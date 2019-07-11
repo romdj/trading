@@ -3,7 +3,8 @@ node_js:
   - "11"
 before_script:
   - cd TickerMonitor
-  - npm i -g snyk mocha
+  - npm i -g snyk 
+  - npm i -g mocha
 # script:
 #   - npm test
 
