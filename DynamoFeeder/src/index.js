@@ -5,7 +5,6 @@ const yahooFinance = require('yahoo-finance');
 const { writeFileSync, appendFileSync, readFileSync, copyFileSync } = require('fs');
 const AWS = require('aws-sdk');
 const uuid = require('uuid/v4');
-const request = require('request-promise');
 
 const NYSE = require('../../../DataSets/json/NYSE');
 const NASDAQ = require('../../../DataSets/json/NASDAQ');
