@@ -1,30 +1,36 @@
 const http = require('http');
-const config = require(`${process.cwd()}/../config.json`);
+const serverConfig = require('../../config.json');
+const AWS = require('aws-sdk');
+const { appendFileSync } = require('fs');
+const hash = require('object-hash');
+
+const maxItemPerQuery = 25;
 const recordsToAdd = [];
 
-setInterval(() => { pushToDynamoRoutine(); }, 500);
+AWS.config.apiVersions = { dynamodb: '2012-08-10' };
+AWS.config.update({ region: 'us-east-1' });
+const dynamodb = new AWS.DynamoDB();
+const dynamodbConfig = require(`${process.cwd()}/config/dynamo.json`);
+const dynamoFailedPath = 'log/failedQueries.json'
+const errDataLogPath = 'log/errorDispatchDynamo.log'
+setInterval(() => { if(recordsToAdd.length > 0)dispatchDynamo(); }, 500);
 
 http.createServer((req, res) => {
-  req.on('data', async items => {
-    const records = JSON.parse(items.toString()); // convert Buffer to string
-    recordsToAdd.push(...records);
-    if (!isRoutineActive) {
-      pushToDynamoRoutine();
-    }
+  req.on('data', (items) => {
+    const quotes = JSON.parse(items.toString());
+    quotes.map(quote => {
+      quote.intraday = false;
+      quote.id = hash(quote);
+      recordsToAdd.push(quote);
+    });
     res.writeHead(200);
     res.end(`${recordsToAdd.length} to be pushed`);
   });
-}).listen(config.port);
-
-function pushToDynamoRoutine() {
-  if (recordsToAdd.length) {
-    dispatchDynamo()
-  }
-}
+}).listen(serverConfig.port);
 
 const dispatchDynamo = () => {
-  const query = generateQuery(quotes);
-  appendFileSync(errDataPath, JSON.stringify(query), 'utf8');
+  const endNumber = recordsToAdd.length > 25 ? 25 : recordsToAdd.length - 1;
+  const query = generateQuery(recordsToAdd.splice(0,endNumber));
   dynamodb.batchWriteItem(query, function (err, data) {
     if (err) {
       console.log(err, err.stack);
@@ -35,6 +41,7 @@ const dispatchDynamo = () => {
 
 const generateQuery = (objects) => {
   const items = [];
+  items.splice
   objects.forEach(obj => items.push(
     {
       PutRequest: {
