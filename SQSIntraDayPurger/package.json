@@ -1,0 +1,17 @@
+{
+  "name": "sqsfeeder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/feeding_server.js",
+  "scripts": {
+    "start": "node src/feeding_server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.494.0",
+    "serverless": "^1.47.0"
+  }
+}

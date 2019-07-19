@@ -1,0 +1,15 @@
+Type: AWS::SQS::Queue
+Properties: 
+  ContentBasedDeduplication: Boolean
+  DelaySeconds: Integer
+  FifoQueue: Boolean
+  KmsDataKeyReusePeriodSeconds: Integer
+  KmsMasterKeyId: String
+  MaximumMessageSize: Integer
+  MessageRetentionPeriod: Integer
+  QueueName: String
+  ReceiveMessageWaitTimeSeconds: Integer
+  RedrivePolicy: Json
+  Tags: 
+    - Tag
+  VisibilityTimeout: Integer

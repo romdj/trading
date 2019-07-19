@@ -1,5 +1,4 @@
 # Get list/data of the following markets:
-1. NYSE
 1. LSE
 1. Paris
 1. Brussels/Euronext
