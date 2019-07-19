@@ -13,11 +13,18 @@ const dynamodb = new AWS.DynamoDB();
 const dynamodbConfig = require(`${process.cwd()}/config/dynamo.json`);
 const dynamoFailedPath = 'log/failedQueries.json'
 const errDataLogPath = 'log/errorDispatchDynamo.log'
-setInterval(() => { if(recordsToAdd.length > 0)dispatchDynamo(); }, 500);
+console.log('ok');
+setInterval(() => {
+  if (recordsToAdd.length > 0) {
+    console.log(`dispatching to dynamo ${recordsToAdd.length}`);
+    dispatchDynamo();
+  }
+}, 2000);
 
 http.createServer((req, res) => {
   req.on('data', (items) => {
     const quotes = JSON.parse(items.toString());
+    // console.log(`data received ${JSON.stringify(quotes)}`);
     quotes.map(quote => {
       quote.intraday = false;
       quote.id = hash(quote);
@@ -27,10 +34,11 @@ http.createServer((req, res) => {
     res.end(`${recordsToAdd.length} to be pushed`);
   });
 }).listen(serverConfig.port);
+console.log('server created');
 
 const dispatchDynamo = () => {
   const endNumber = recordsToAdd.length > 25 ? 25 : recordsToAdd.length - 1;
-  const query = generateQuery(recordsToAdd.splice(0,endNumber));
+  const query = generateQuery(recordsToAdd.splice(0, endNumber));
   dynamodb.batchWriteItem(query, function (err, data) {
     if (err) {
       console.log(err, err.stack);

@@ -42,7 +42,10 @@ const results = [];
 const errTickers = [];
 const errDataPath = `${process.cwd()} / ResultData / ErrorTickers_day - to - day.json`;
 
-dateRanges.forEach((dateRange) => {
+// dateRanges.forEach((dateRange) => {
+// const dateRange = dateRanges[2];
+function fetchData(dateRange) {
+  console.log(`fetching for date: ${dateRange}`);
   tickers.forEach(ticker => {
     yahooFinance.historical({
       symbol: ticker,
@@ -57,8 +60,16 @@ dateRanges.forEach((dateRange) => {
         appendFileSync(errDataPath, JSON.stringify(errTickers), 'utf8');
       }
       else {
+        console.log(`posting data`);
         rp.post(url, { body: quotes, json: true }).then(response => console.log(response));
       }
     });
   });
-})
+}
+// })
+
+setInterval(() => {
+  if (dateRanges.length > 0) {
+    fetchData(dateRanges.pop());
+  }
+}, 100000);
