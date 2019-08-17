@@ -1,0 +1,14 @@
+{
+  "DB": [
+    {
+      "name": "DynamoDB",
+      "exportPath": "../dataExport/testDynamo.js",
+      "enabled": false
+    },
+    {
+      "name": "MongoDB",
+      "exportPath": "../dataExport/testMongo.js",
+      "enabled": true
+    }
+  ]
+}
