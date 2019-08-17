@@ -7,7 +7,7 @@
     },
     {
       "name": "MongoDB",
-      "exportPath": "../dataExport/testMongo.js",
+      "exportPath": "../dataExport/testMongo2.js",
       "enabled": true
     }
   ]

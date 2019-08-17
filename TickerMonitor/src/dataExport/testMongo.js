@@ -23,7 +23,7 @@ function insertMany(dataArray, dbName, tableName) {
   const url = "mongodb://localhost:27017/";
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
-    var dbo = db.db(dbName);
+    const dbo = db.db(dbName);
     dbo.collection(tableName).insertMany(dataArray, function (err, res) {
       if (err) throw err;
       console.log("Number of documents inserted: " + res.insertedCount);
@@ -39,7 +39,7 @@ function deleteOne(query, dbName, tableName) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     const dbo = db.db(dbName);
-    // var myquery = { address: 'Mountain 21' };
+    // const myquery = { address: 'Mountain 21' };
     dbo.collection(tableName).deleteOne(query, function (err, obj) {
       if (err) throw err;
       console.log("1 document deleted");
@@ -49,13 +49,13 @@ function deleteOne(query, dbName, tableName) {
 }
 
 function deleteMany(query, dbName, tableName) {
-  var MongoClient = require('mongodb').MongoClient;
-  var url = "mongodb://localhost:27017/";
+  const { MongoClient } = require('mongodb');
+  const url = "mongodb://localhost:27017/";
 
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     const dbo = db.db(dbName);
-    // var myquery = { address: /^O/ };
+    // const myquery = { address: /^O/ };
     dbo.collection(tableName).deleteMany(query, function (err, obj) {
       if (err) throw err;
       console.log(obj.result.n + " document(s) deleted");
@@ -63,4 +63,19 @@ function deleteMany(query, dbName, tableName) {
     });
   });
 }
-module.exports = { insertOne, insertMany, deleteOne, deleteMany };
+
+function purge(dbName, tableName) {
+  const { MongoClient } = require('mongodb');
+  const url = "mongodb://localhost:27017/";
+
+  MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+    const dbo = db.db(dbName);
+    dbo.collection(tableName).deleteMany({}, function (err, obj) {
+      if (err) throw err;
+      console.log(obj.result.n + " document(s) deleted");
+      db.close();
+    });
+  });
+}
+module.exports = { insertOne, insertMany, deleteOne, deleteMany, purge };
