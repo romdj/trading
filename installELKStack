@@ -1,9 +1,0 @@
-#!/bin/bash
-
-brew services start elasticsearch
-brew install logstash
-brew services start logstash
-brew install kibana
-brew services start kibana
-brew services list
-# sudo vi /usr/local/etc/kibana/kibana.yml
