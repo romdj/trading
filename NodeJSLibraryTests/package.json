@@ -21,7 +21,7 @@
     "stockroom": "^1.0.1",
     "yahoo-finance": "^0.3.6",
     "yahoo-stocks": "^2.0.4",
-    "snyk": "^1.192.6"
+    "snyk": "^1.214.0"
   },
   "snyk": true
 }
