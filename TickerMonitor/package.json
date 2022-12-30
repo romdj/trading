@@ -22,7 +22,7 @@
     "chai": "^4.2.0",
     "conventional-changelog-cli": "^2.0.21",
     "elasticsearch": "^15.5.0",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "mongoose": "^5.7.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
