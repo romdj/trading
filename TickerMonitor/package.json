@@ -23,7 +23,7 @@
     "conventional-changelog-cli": "^2.0.21",
     "elasticsearch": "^15.5.0",
     "mocha": "^6.1.4",
-    "mongoose": "^5.7.5",
+    "mongoose": "^5.13.20",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "request-promise-native": "^1.0.7",
